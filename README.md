@@ -358,7 +358,7 @@ lynx http://static.K62.com/annals/
 
 #Expected: Bisa melihat directory listing dari folder /annals
 ```
-### 10 Web Dinamis di Vingilot dengan PHP-FPM
+### 10. Web Dinamis di Vingilot dengan PHP-FPM
 Di Terminal Vingilot, Install Packages:
 ```bash
 apt install nginx php8.4-fpm php8.4-cli -y
@@ -458,10 +458,10 @@ Set permission kemudian Aktifkan:
 chown -R www-data:www-data /var/www/app
 chmod -R 755 /var/www/app
 
-nginx -t
-systemctl restart nginx
-systemctl restart php8.4-fpm
-systemctl enable nginx php8.4-fpm
+nginx -t  
+service nginx restart
+service php8.4-fpm restart
+service nginx enable php8.4-fpm
 ```
 Verifikasi Web Dinamis, Dari client (Earendil/Elrond):
 ```bash
