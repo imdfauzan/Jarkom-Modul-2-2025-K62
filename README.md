@@ -9,8 +9,14 @@
 
 ## Write Up
 ### 1. ![topologi](img/1.png)
-### 2.
-### 3.
+### 2. Konfigurasi NAT di Eonwe
+```bash
+echo 1 > /proc/sys/net/ipv4/ip_forward
+```
+### 3. Routing Internal dan Resolver Awal
+```bash
+echo "nameserver 192.168.122.1" > /etc/resolv.conf
+```
 ### 4. Pada Terminal Tirion:
 ```Bash
 nano /etc/bind/named.conf.options
@@ -289,10 +295,6 @@ systemctl restart bind9
 ```
 Verifikasi Reverse DNS, Test dari client mana saja:
 ```bash
-# Test PTR records
-nslookup 192.242.3.1
-nslookup 192.242.3.22
-nslookup 192.242.3.23
 # Test dengan specify nameserver
 nslookup 192.242.3.1 192.242.3.20
 nslookup 192.242.3.22 192.242.3.21
@@ -563,7 +565,7 @@ curl -I --user admin:admin http://www.K62.com/admin
 
 ### 13. Buka Terminal Sirion:
 ```bash
-nano /etc/nginx/sites-available/reverse_proxy
+nano /etc/nginx/sites-available/reverse_proxy 
 # masukkan ini:
 server {
     listen 80 default_server;
