@@ -119,6 +119,24 @@ dig ns2.K62.com +short
 
 ping -c3 K62.com
 ```
+Verifikasi DNS Internal  
+1. Lakukan verifikasi dari salah satu host klien (misalnya Earendil).
+```Bash
+echo "nameserver 192.242.3.20" > /etc/resolv.conf
+echo "nameserver 192.242.3.21" >> /etc/resolv.conf
+echo "nameserver 192.168.122.1" >> /etc/resolv.conf
+```
+
+2.	Verifikasi Tirion (ns1) dan Valmar (ns2):
+   Cek A record apex
+  	```Bash
+       dig @192.242.3.20 k01.com A +short   //Harus mengembalikan 192.242.3.2 (Sirion)
+    ```
+
+   Cek A record nameserver:
+   ```Bash
+    dig @192.242.3.20 ns1.k01.com A +short # Harus mengembalikan 192.242.3.20
+   ```
 
 ### 5. Membuat Hostname pada tiap Client
 
