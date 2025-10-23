@@ -138,7 +138,7 @@ echo "nameserver 192.168.122.1" >> /etc/resolv.conf
     dig @192.242.3.20 ns1.k01.com A +short # Harus mengembalikan 192.242.3.20
    ```
 
-![ss4](img/ss4.jpg)
+![ss4](img/ss4.png)
 
 ### 5. Membuat Hostname pada tiap Client
 
